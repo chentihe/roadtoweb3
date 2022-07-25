@@ -1,0 +1,140 @@
+{
+  "address": "0xc5a5C42992dECbae36851359345FE25997F5C42d",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "complete",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "completed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "redeposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "setWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whitelist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xa62bfc37e66eb006e7fdcc6e863635331e5ae043799300d75a6c624cf2d9f853",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xc5a5C42992dECbae36851359345FE25997F5C42d",
+    "transactionIndex": 0,
+    "gasUsed": "198571",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x22dd4cc7772ab453287176e60e0793531454e75bf9ebb0b5d2686e85753dd625",
+    "transactionHash": "0xa62bfc37e66eb006e7fdcc6e863635331e5ae043799300d75a6c624cf2d9f853",
+    "logs": [],
+    "blockNumber": 69,
+    "cumulativeGasUsed": "198571",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "e3c0d5f9a0a48799d02836a25b6363fe",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"complete\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"completed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"redeposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"setWhitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"whitelist\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ExampleExternalContract.sol\":\"ExampleExternalContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/ExampleExternalContract.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ncontract ExampleExternalContract {\\n\\n  bool public completed;\\n  mapping (address => bool) public whitelist;\\n\\n  function complete() public payable {\\n    completed = true;\\n  }\\n\\n  function setWhitelist(address _address) public {\\n    whitelist[_address] = true;\\n  }\\n\\n  function redeposit(address _address) external {\\n    require(whitelist[msg.sender], \\\"You are not allow to call this function!\\\");\\n    (bool sent, bytes memory data) = _address.call{value: address(this).balance}(\\\"\\\");\\n    require(sent, \\\"receiver rejected ETH transfer\\\");\\n  }\\n}\\n\",\"keccak256\":\"0x5143e1d352f9fb7560239cf43942f79aa42278146db27aa99a09be14e1a9f120\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102a1806100206000396000f3fe60806040526004361061004a5760003560e01c8063522e11771461004f578063854cff2f146100635780639b19251a146100a55780639d9a7fe9146100e9578063b8bee62814610103575b600080fd5b6100616000805460ff19166001179055565b005b34801561006f57600080fd5b5061006161007e36600461023d565b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b3480156100b157600080fd5b506100d56100c036600461023d565b60016020526000908152604090205460ff1681565b604051901515815260200160405180910390f35b3480156100f557600080fd5b506000546100d59060ff1681565b34801561010f57600080fd5b5061006161011e36600461023d565b3360009081526001602052604090205460ff166101935760405162461bcd60e51b815260206004820152602860248201527f596f7520617265206e6f7420616c6c6f7720746f2063616c6c20746869732066604482015267756e6374696f6e2160c01b60648201526084015b60405180910390fd5b600080826001600160a01b03164760405160006040518083038185875af1925050503d80600081146101e1576040519150601f19603f3d011682016040523d82523d6000602084013e6101e6565b606091505b5091509150816102385760405162461bcd60e51b815260206004820152601e60248201527f72656365697665722072656a656374656420455448207472616e736665720000604482015260640161018a565b505050565b60006020828403121561024e578081fd5b81356001600160a01b0381168114610264578182fd5b939250505056fea2646970667358221220acacfa7354685bb801d194811468b43625e927d2203dc7b7888f3985c5a02aee64736f6c63430008040033",
+  "deployedBytecode": "0x60806040526004361061004a5760003560e01c8063522e11771461004f578063854cff2f146100635780639b19251a146100a55780639d9a7fe9146100e9578063b8bee62814610103575b600080fd5b6100616000805460ff19166001179055565b005b34801561006f57600080fd5b5061006161007e36600461023d565b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b3480156100b157600080fd5b506100d56100c036600461023d565b60016020526000908152604090205460ff1681565b604051901515815260200160405180910390f35b3480156100f557600080fd5b506000546100d59060ff1681565b34801561010f57600080fd5b5061006161011e36600461023d565b3360009081526001602052604090205460ff166101935760405162461bcd60e51b815260206004820152602860248201527f596f7520617265206e6f7420616c6c6f7720746f2063616c6c20746869732066604482015267756e6374696f6e2160c01b60648201526084015b60405180910390fd5b600080826001600160a01b03164760405160006040518083038185875af1925050503d80600081146101e1576040519150601f19603f3d011682016040523d82523d6000602084013e6101e6565b606091505b5091509150816102385760405162461bcd60e51b815260206004820152601e60248201527f72656365697665722072656a656374656420455448207472616e736665720000604482015260640161018a565b505050565b60006020828403121561024e578081fd5b81356001600160a01b0381168114610264578182fd5b939250505056fea2646970667358221220acacfa7354685bb801d194811468b43625e927d2203dc7b7888f3985c5a02aee64736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/ExampleExternalContract.sol:ExampleExternalContract",
+        "label": "completed",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 7,
+        "contract": "contracts/ExampleExternalContract.sol:ExampleExternalContract",
+        "label": "whitelist",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      }
+    }
+  }
+}
